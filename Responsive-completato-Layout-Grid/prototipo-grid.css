@@ -1,0 +1,82 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    max-width: 1200px;
+    margin: 0 auto;
+    border: 1px solid red;
+    display: grid;
+
+    grid-template-columns: 2fr 3fr 2fr 160px;
+    gap: 2em;
+
+    grid-template-areas: 
+    'testata    testata     testata     banner'
+    'colonnaSx   articolo   colonnaDx   banner'
+    'footer     footer      footer      banner';
+}
+
+/* FR sta per Fractional Unit, si possono usare solo nel grid-template-columns*/
+
+body > *{
+    border: 1px dashed red;
+}
+
+img{
+    max-width: 100%;
+}
+
+header{
+    grid-area: testata;
+}
+
+#sx{
+    grid-area: colonnaSx;
+}
+
+article{
+    grid-area: articolo;
+}
+
+#dx{
+    grid-area: colonnaDx;
+}
+
+footer{
+    grid-area: footer;
+}
+
+div{
+    grid-area: banner;
+}
+
+@media screen and (max-width:1024px) {
+    body{
+    
+        grid-template-columns: 2fr 3fr 2fr;
+    
+        grid-template-areas: 
+        'testata    testata     testata'
+        'colonnaSx   articolo   articolo'
+        'colonnaDx  colonnaDx   colonnaDx'
+        'footer     footer      footer';
+    }
+    div{
+        display: none;
+    }
+}
+
+@media screen and (max-width:768px) {
+    body{
+    
+        grid-template-columns: 1fr;
+    
+        grid-template-areas: 
+        'testata'
+        'articolo'
+        'colonnaSx'
+        'colonnaDx'
+        'footer';
+    }
+}
